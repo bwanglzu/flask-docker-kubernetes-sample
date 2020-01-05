@@ -11,3 +11,4 @@ kubectl apply -f k8s/service.yml
 working in progress:
 1. healthcheck with liveness and readness probe.
 2. yml management with [kustomize](https://github.com/kubernetes-sigs/kustomize)
+3. machine learning life cycle management with [kubeflow](https://github.com/kubeflow/kubeflow)
