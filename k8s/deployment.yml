@@ -24,6 +24,21 @@ spec:
             - name: http
               containerPort: 5000
           env:
+            - name: debug
+              valueFrom:
+                configMapRef:
+                  name: sampleapp-configmap
+                  key: debug
+            - name: host
+              valueFrom:
+                configMapRef:
+                  name: sampleapp-configmap
+                  key: host
+            - name: port
+              valueFrom:
+                configMapRef:
+                  name: sampleapp-configmap
+                  key: port
             - name: username
               valueFrom:
                 secretKeyRef:

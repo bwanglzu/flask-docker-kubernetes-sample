@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: chatbot
+  name: sampleapp-configmap
 data:
   debug: "True"
   port: "5000"

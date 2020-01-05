@@ -13,10 +13,10 @@ if username == 'bo' and 'randompassword' in password:
 else:
     raise ValueError('Unable to read k8s secrets!')
 
-# Read config from k8s configmap, other use default value for docker build without k8s
-debug = os.environ.get('debug', True)
-host = os.environ.get('host', '0.0.0.0')
-port = os.environ.get('port', 5000)
+# Read config from k8s configmap.
+debug = os.environ['debug']
+host = os.environ.['host']
+port = os.environ['port']
 
 
 @app.route('/')
