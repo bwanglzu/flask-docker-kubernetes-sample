@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Mock DB access, assert get DB credentials from k8s secrets.
 username = os.environ['username']
 password = os.environ['password']
-if username == 'bo' and 'randompassword' in password:
+if username and password:
     logger.info('db connection succeed!')
 else:
     raise ValueError('Unable to read k8s secrets!')
