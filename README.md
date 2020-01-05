@@ -1,12 +1,13 @@
 #### A test app
 
-Build:
+Build & Run docker app:
 ```python
 # docker build -t <username>/<appname> .
-docker build -t bo/sampleapp .
+docker build -t bo/sampleapp:latest .
+docker run -d -p 5000:5000 bo/sampleapp
 ```
 
-Run:
+Apply k8s secrets:
 ```python
-docker run -d -p 5000:5000 bo/sampleapp
+kubectl apply -f k8s/local/secret.yml
 ```

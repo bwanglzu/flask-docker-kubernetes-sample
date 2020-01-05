@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampleapp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sampleapp
+        track: stable
+    spec:
+      containers:
+        - name: sampleapp
+          image: "bo/sampleapp:latest"
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 800Mi
+            requests:
+              cpu: 500m
+              memory: 600Mi
+          ports:
+            - name: http
+              containerPort: 5000
+          env:
+            - name: username
+              valueFrom:
+                secretKeyRef:
+                  name: sampleapp-secrets
+                  key: username
+            - name: password
+              valueFrom:
+                secretKeyRef:
+                  name: sampleapp-secrets
+                  key: password
