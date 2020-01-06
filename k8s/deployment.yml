@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
         - name: sampleapp
-          image: "bo/sampleapp:latest"
+          image: bo/sampleapp:latest
+          imagePullPolicy: Never
           resources:
             limits:
               cpu: 1000m
@@ -29,17 +30,17 @@ spec:
           env:
             - name: debug
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: sampleapp-configmap
                   key: debug
             - name: host
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: sampleapp-configmap
                   key: host
             - name: port
               valueFrom:
-                configMapRef:
+                configMapKeyRef:
                   name: sampleapp-configmap
                   key: port
             - name: username

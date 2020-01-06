@@ -14,13 +14,15 @@ debug = os.environ['debug']
 username = os.environ['username']
 password = os.environ['password']
 if username and password:
-    logger.info('db connection succeed!')
+    logger.info(f'db connection succeed with {username}!')
 else:
     raise ValueError('Unable to read k8s secrets!')
 
 @app.route('/')
 def hello():
+    logger.info('accessing hello endpoint.')
     return "Hello"
 
 if __name__ == '__main__':
+    logger.info(f"debug mode: {debug}, host: {host}, port: {port}")
     app.run(debug=debug, host=host, port=port)
